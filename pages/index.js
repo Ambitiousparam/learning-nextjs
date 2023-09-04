@@ -11,7 +11,6 @@ import React ,{ useState}from "react";
 // }
 
 function CompA(){
-  //[valuestate contains two elements 1 is the state value and 2nd element is the elements through which we can change the state]
   return(
     <>
    <h1>CompA</h1> 
@@ -23,6 +22,8 @@ function CompA(){
   //   // React.createElement("div",null,
   //   //   React.createElement("h1",null,"CompA"),
   //   //   React.createElement("p",null,"CompA")
+
+
   //   //not possible to return two elements from a single return
   //   //React.createElement("h1",null,"CompA")
   //   //React.createElement("h1",null,"CompA")
@@ -54,6 +55,8 @@ function Home(){
     console.log(myValue)
     //[valuestate contains array two elements 1 is the state value and 2nd element is the elements through which we can change the state,mutatestate]
   //different methods of accesing the elements of the array
+    // const valueState = useState(10);
+  const [value,setValue] = useState(10);
   // const value = valueState[0];
   // const setValue= valueState[1]
   // console.log(valueState)
