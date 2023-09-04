@@ -50,7 +50,7 @@ function CompA(){
 function Home(){
     //[valuestate contains array two elements 1 is the state value and 2nd element is the elements through which we can change the state,mutatestate]
   //different methods of accesing the elements of the array
-    // const valueState = useState(10);
+  const valueState = useState(10);
   const [value,setValue] = useState(10);
   // const value = valueState[0];
   // const setValue= valueState[1]
