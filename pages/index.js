@@ -48,22 +48,30 @@ function CompA(){
 }
 
 function Home(){
+  const [myValue,setValue] = useState(10);
+  const incrementValue=()=>{
+    setValue(myValue+1);
+    console.log(myValue)
     //[valuestate contains array two elements 1 is the state value and 2nd element is the elements through which we can change the state,mutatestate]
   //different methods of accesing the elements of the array
-    // const valueState = useState(10);
-  const [value,setValue] = useState(10);
   // const value = valueState[0];
   // const setValue= valueState[1]
   // console.log(valueState)
   // console.log(valueState[0])
+ 
+  }
 
   return(
     <>
-      valueState :{valueState[0] }
-     <h1> hello world</h1>
+
+      current value : <h1> { myValue } </h1>
+      <button onClick={incrementValue}>+</button>
+      <button>-</button>
+
      <CompA />
     </>
   )
 }
+
 export default Home;
 
