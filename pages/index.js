@@ -13,8 +13,7 @@ import React ,{ useState}from "react";
 function CompA(){
   return(
     <>
-   <h1>CompA</h1> 
-   <p>hello Comp A</p>
+   <p>hello Comp C</p>
    </>
   )
 }
@@ -41,40 +40,43 @@ function CompA(){
 //  }
  //jsx  - javascript xml
  class CompC extends React.Component {
+  state ={
+    myValue :10
+  }
+  changeState(incrementor){
+    console.log(incrementor);
+  }
   render(){
    return (
-    <h1>hello CompC</h1>
-   )
+    <>
+      <h1>hello CompC</h1>
+      current value : <h1> { this.state.myValue } </h1>
+      <button onClick= {() => this.changeState(this.state.myValue-1)}>+</button>
+      <button onClick={()=>this.changeState(this.state.myValue-1)}>-</button>
+      </>
+      )
   }
 }
 
 function Home(){
   const [myValue,setValue] = useState(10);
-  const incrementValue=()=>{
-    setValue(myValue+1);
-    console.log(myValue)
     //[valuestate contains array two elements 1 is the state value and 2nd element is the elements through which we can change the state,mutatestate]
   //different methods of accesing the elements of the array
-    // const valueState = useState(10);
-  const [value,setValue] = useState(10);
+    //const valueState = useState(10);
   // const value = valueState[0];
   // const setValue= valueState[1]
   // console.log(valueState)
   // console.log(valueState[0])
+  //setvalue can be also used directly with the event handling 
  
-  }
-
   return(
     <>
-
       current value : <h1> { myValue } </h1>
-      <button onClick={incrementValue}>+</button>
-      <button>-</button>
-
-     <CompA />
+      <button onClick= {() => setValue(myValue-1)}>+</button>
+      <button onClick={()=>setValue(myValue-1)}>-</button>
+     <CompC />
     </>
   )
 }
-
 export default Home;
 
