@@ -3,7 +3,7 @@ import React ,{ useState}from "react";
 // const ArrowFunction = params =>{
 //   return (
 //     <div>
-//       <h1>
+//       <h1> 
 //         i am arrow function
 //       </h1>
 //     </div>
@@ -40,18 +40,30 @@ function CompA(){
 //  }
  //jsx  - javascript xml
  class CompC extends React.Component {
-  state ={
-    myValue :10
+
+  constructor(){
+    super();
+    this.state={
+      myValue : 10
+    }
   }
+  // state ={
+  //   myValue :10
+  // }
   changeState(incrementor){
-    console.log(incrementor);
-  }
+    this.setState({
+      myValue:incrementor
+    
+  })
+}
   render(){
+    //render function means that it will be re executed everytime it starts or after changing the state
+    alert("i am reexecuted")
    return (
     <>
       <h1>hello CompC</h1>
       current value : <h1> { this.state.myValue } </h1>
-      <button onClick= {() => this.changeState(this.state.myValue-1)}>+</button>
+      <button onClick= {() => this.changeState(this.state.myValue+1)}>+</button>
       <button onClick={()=>this.changeState(this.state.myValue-1)}>-</button>
       </>
       )
@@ -72,7 +84,7 @@ function Home(){
   return(
     <>
       current value : <h1> { myValue } </h1>
-      <button onClick= {() => setValue(myValue-1)}>+</button>
+      <button onClick= {() => setValue(myValue+1)}>+</button>
       <button onClick={()=>setValue(myValue-1)}>-</button>
      <CompC />
     </>
