@@ -10,10 +10,14 @@ import React ,{ useState}from "react";
 //   )
 // }
 
-function CompA(){
+function CompA(allprops){
   return(
     <>
-   <p>hello Comp C</p>
+      <p>hello Comp A</p>
+      <div>My prop 1: {allprops.myProp1}</div>
+      <div>My prop 2: {allprops.myProp2}</div>
+      <div>My prop 3: {allprops.myProp3.toString()}</div>
+      <div>My prop 4: {<allprops.myProp4 />}</div>
    </>
   )
 }
@@ -86,8 +90,14 @@ function Home(){
       current value : <h1> { myValue } </h1>
       <button onClick= {() => setValue(myValue+1)}>+</button>
       <button onClick={()=>setValue(myValue-1)}>-</button>
-     <CompC />
+    <CompA 
+     myProp1 = {myValue}
+     myProp2 = "can paas any kind of value in a prop it can be a function,string,boolean value,jsx and many more"
+     myProp3 = {true}
+     myProp4 = {()=> <div> my new jsx</div>}
+    />
     </>
+
   )
 }
 export default Home;
