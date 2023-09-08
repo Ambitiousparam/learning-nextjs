@@ -1,5 +1,4 @@
 import React ,{ useState,useEffect}from "react";
-
 // const ArrowFunction = params =>{
 //   return (
 //     <div>
@@ -9,7 +8,6 @@ import React ,{ useState,useEffect}from "react";
 //     </div>
 //   )
 // }
-
 //use {}in props if you are sending a single props but for sending multiple props use the normal paranthesis or you can use any keyword for example(props or myprops or any word of your choice)
 
 function CompA(allprops){
@@ -67,13 +65,16 @@ console.log("compa use effect");
 }
   render(){
     //render function means that it will be re executed everytime it starts or after changing the state
-    alert("i am reexecuted")
-   return (
+   const {myValue}= this.state;
+   const {myProp1}= this.props; //now the prop1 can be used directly without using the this,allprops keyword as we are directly specified here
+    return (
     <>
       <h1>hello CompC</h1>
       current value : <h1> { this.state.myValue } </h1>
       <button onClick= {() => this.changeState(this.state.myValue+1)}>+</button>
       <button onClick={()=>this.changeState(this.state.myValue-1)}>-</button>
+      <h1>{this.props.myProp1}</h1>
+      <h1>{myProp1}</h1> 
       </>
       )
   }
@@ -104,15 +105,17 @@ function Home(){
       current value : <h1> { myotherValue } </h1>
       <button onClick= {() => setotherValue(myotherValue+1)}>+</button>
       <button onClick={()=>setotherValue(myotherValue-1)}>-</button>
-    <CompA 
+    {/* <CompA 
      myProp1 = {myValue}
      myProp2 = "can paas any kind of value in a prop it can be a function,string,boolean value,jsx and many more"
      myProp3 = {true}
      myProp4 = {()=> <div> my new jsx</div>}
-    />
+    /> */}
+    <CompC  myProp1 = {myValue}/>
     </>
 
   )
 }
 export default Home;
+
 
